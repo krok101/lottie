@@ -5,6 +5,7 @@ import { PoweroffOutlined } from '@ant-design/icons'
 import { Initialize, Message } from './components'
 import { animation } from './types'
 import style from './App.module.css'
+import { Box, Manipulator } from './components/Manipulator/Manipulator'
 
 type step = 'button' | 'animation' | 'message'
 
@@ -20,30 +21,29 @@ const App = () => {
     }, 2500)
   }
 
-  const getElementByType = () => {
-    switch(step) {
-      case 'button': return (
-      <Button
-        className={style.button}
-        type="primary"
-        icon={<PoweroffOutlined />}
-        onClick={onClick}
-      >
-        Click me!
-      </Button>);
-      case 'animation': return <Initialize mode={modAnimation}/>;
-      case 'message': return (
-        <Message className={style.message}>
-          <h3>Привет</h3>
-          <p>чем могу помочь?</p>
-        </Message>
-      )
-    }
-  }
-
   return (
     <Content >
-      {getElementByType()}
+      <Manipulator elementName={step}>
+        <Box name='button'>
+          <Button
+            className={style.button}
+            type='primary'
+            icon={<PoweroffOutlined />}
+            onClick={onClick}
+          >
+            Click me!
+          </Button>
+        </Box>
+        <Box name='animation'>
+          <Initialize mode={modAnimation}/>
+        </Box>
+        <Box name='message'>
+          <Message className={style.message}>
+            <h3>Привет</h3>
+            <p>чем могу помочь?</p>
+          </Message>
+        </Box>
+      </Manipulator>
     </Content>
   )
 }
