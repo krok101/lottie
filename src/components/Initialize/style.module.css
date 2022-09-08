@@ -1,0 +1,33 @@
+.container {
+  width: 15rem;
+}
+
+.start {
+  animation-duration: .5s;
+  animation-name: start;
+}
+
+@keyframes start {
+  from {
+    transform: scale(0)
+  }
+
+  to {
+    transform: scale(1)
+  }
+}
+
+.finish {
+  animation-duration: .5s;
+  animation-name: finish;
+}
+
+@keyframes finish {
+  to {
+    transform: scale(0);
+  }
+
+  from {
+    transform: scale(1);
+  }
+}

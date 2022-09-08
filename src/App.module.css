@@ -1,0 +1,31 @@
+.message {
+  animation-duration: .5s;
+  animation-name: message;
+}
+
+@keyframes message {
+  from {
+    transform: scale(0.5);
+  }
+  
+  to {
+    transform: scale(1);
+  }
+}
+
+.message *{
+  animation-duration: .8s;
+  animation-name: child;
+}
+
+@keyframes child {
+  from {
+    transform: scale(0.5);
+    opacity: 0;
+  }
+
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
